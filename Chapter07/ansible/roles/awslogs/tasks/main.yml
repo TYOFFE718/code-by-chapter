@@ -27,8 +27,5 @@
     - { option: datetime_format, value: "{{ datetime_format | default('%b %d %H:%M:%S') }}" }    
   notify: restart awslogs 
 
-- name: start awslogs and enable it 
-  service: 
-    name: awslogs 
-    state: started 
-    enabled: yes 
+- name: Make  service is running
+  systemd: state=started name=awslogs
